@@ -20,41 +20,38 @@
                 <targetPath>static</targetPath>
             </resource>
         </resources>
-        <plugins>
-            <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-              <version>1.15.0</version>
-                <configuration>
-                    <workingDirectory>./</workingDirectory>
-                    <nodeVersion>v20.11.0</nodeVersion>
-                    <npmVersion>10.2.4</npmVersion>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>install node and npm</id>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>npm install</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>npm run build</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <configuration>
-                            <arguments>run build</arguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>install npm dependencies</id>
+              <phase>initialize</phase>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+              <configuration>
+                <workingDirectory>${project.basedir}</workingDirectory>
+                <executable>npm</executable>
+                <commandlineArgs>install</commandlineArgs>
+              </configuration>
+            </execution>
+            <execution>
+              <id>build webapp</id>
+              <phase>compile</phase>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+              <configuration>
+                <workingDirectory>${project.basedir}</workingDirectory>
+                <executable>npm</executable>
+                <commandlineArgs>run build</commandlineArgs>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
     </build>
 
 </project>
