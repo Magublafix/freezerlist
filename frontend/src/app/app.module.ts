@@ -57,6 +57,27 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDatepickerModule,
     MatGridListModule
   ],
+  exports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatButtonModule,
+    MatProgressSpinnerModule,
+    MatMenuModule,
+    MatCardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatGridListModule
+  ],
   providers: [
     provideAnimationsAsync()
   ],
