@@ -42,6 +42,9 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
+                      <configuration>
+                        <arguments>install --verbose</arguments>
+                      </configuration>
                     </execution>
                     <execution>
                         <id>npm run build</id>
@@ -49,7 +52,7 @@
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                          <arguments>run build</arguments>
+                          <arguments>run build --verbose</arguments>
                         </configuration>
                     </execution>
                 </executions>
