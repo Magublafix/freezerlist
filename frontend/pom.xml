@@ -38,6 +38,18 @@
               </configuration>
             </execution>
             <execution>
+              <id>install angular material</id>
+              <phase>initialize</phase>
+              <goals>
+                <goal>exec</goal>
+              </goals>
+              <configuration>
+                <workingDirectory>${project.basedir}</workingDirectory>
+                <executable>npm</executable>
+                <commandlineArgs>install @angular/material</commandlineArgs>
+              </configuration>
+            </execution>
+            <execution>
               <id>build webapp</id>
               <phase>compile</phase>
               <goals>
