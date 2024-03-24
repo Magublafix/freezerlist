@@ -29,6 +29,8 @@ jobs:
           images: ${{ secrets.DOCKER_USERNAME }}/freezerlist
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          platforms: linux/arm64
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
