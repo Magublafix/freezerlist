@@ -1,4 +1,4 @@
-name: Create Jar Artifact
+name: Build
 
 on: push
   
@@ -9,5 +9,18 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
-
-      - uses: ./.github/workflows/push-image.yml
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'corretto'
+      - name: Run the Maven verify phase
+        run: mvn --batch-mode --update-snapshots verify
+      - name: Create dir and move target
+        run: mkdir staging/backend && mv backend/target staging/backend
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Package
+          path: staging
+          retention-days: 1
