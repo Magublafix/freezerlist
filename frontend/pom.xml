@@ -46,7 +46,7 @@
               <configuration>
                 <workingDirectory>${project.basedir}</workingDirectory>
                 <executable>npm</executable>
-                <commandlineArgs>run build --prod</commandlineArgs>
+                <commandlineArgs>run build</commandlineArgs>
               </configuration>
             </execution>
           </executions>
