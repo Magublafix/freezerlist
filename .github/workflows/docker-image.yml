@@ -4,7 +4,7 @@ on: push
   
 jobs:
   build_artifact:
-    name: Push Docker image to Docker Hub
+    name: Build Jar Artifact
     runs-on: windows-latest
     steps:
       - name: Check out the repo
@@ -24,3 +24,4 @@ jobs:
           name: Package
           path: staging
           retention-days: 1
+      - uses: ./.github/workflows/push-image.yml

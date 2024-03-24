@@ -1,9 +1,6 @@
 name: Push image to Docker
 on:
-  workflow_run:
-    workflows: ["name: Create Jar Artifact"]
-    types:
-      - completed
+  workflow_call:
 
 jobs:
   push_to_docker:
