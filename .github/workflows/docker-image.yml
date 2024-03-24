@@ -27,7 +27,7 @@ jobs:
   push_to_registry:
     name: push
     runs-on: ubuntu-latest
-    needs: [build]
+    needs: [build_artifact]
     steps:
       - name: Check out the repo
         uses: actions/checkout@v4
