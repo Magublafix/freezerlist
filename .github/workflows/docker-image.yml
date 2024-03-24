@@ -3,7 +3,7 @@ name: Publish Docker image
 on: push
   
 jobs:
-  push_to_registry:
+  build_artifact:
     name: Push Docker image to Docker Hub
     runs-on: windows-latest
     steps:
@@ -16,9 +16,37 @@ jobs:
           distribution: 'corretto'
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
-      - run: mkdir staging && mv backend/target staging
-      - uses: actions/upload-artifact@v3
+      - name: Create dir and move target
+        run: mkdir staging/backend && mv backend/target staging/backend
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v3
         with:
           name: Package
           path: staging
           retention-days: 1
+  push_to_registry:
+    name: Push Docker image to Docker Hub
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+      - name: Download thte artifact
+        uses: actions/download-artifact@master
+        with:
+          path: staging
+      - name: CD to staging
+        run: ls staging && cd staging
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ${{ secrets.DOCKER_USERNAME }}/freezerlist
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          platforms: linux/arm64
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
