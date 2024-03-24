@@ -16,7 +16,7 @@ jobs:
           distribution: 'corretto'
       - name: Run the Maven verify phase
         run: mvn --batch-mode --update-snapshots verify
-      - run: mkdir staging && mv /backend/target staging
+      - run: mkdir staging && mv freezerlist/freezerlist/backend/target staging
       - uses: actions/upload-artifact@v3
         with:
           name: Package
