@@ -14,9 +14,7 @@ jobs:
           node-version: 20
       - run: rm -rf node_modules/
         working-directory: frontend
-      - run: npm install -g @angular/cli@latest
-        working-directory: frontend
-      - run: npm ci --production
+      - run: npm ci
         working-directory: frontend
       - run: npm run build
         working-directory: frontend
