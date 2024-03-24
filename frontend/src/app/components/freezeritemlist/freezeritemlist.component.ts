@@ -10,6 +10,7 @@ import { CreateDialogComponent } from '../dialogs/create/create.dialog.component
 import { FreezerItem } from '../../models/freezeritem';
 import { EditDialogComponent } from '../dialogs/edit/edit.dialog.component';
 import { DeleteDialogComponent } from '../dialogs/delete/delete.dialog.component';
+import { AppModule } from '../../app.module';
 
 @Component({
   selector: 'app-freezeritemlist',

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { FreezerItemImage } from '../../models/freezeritemimage';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { AppModule } from '../../app.module';
 
 @Injectable({
   providedIn: 'root'

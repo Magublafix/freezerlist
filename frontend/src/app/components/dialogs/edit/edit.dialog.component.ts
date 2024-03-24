@@ -9,6 +9,7 @@ import { FreezerItemService } from '../../../service/freezeritem/freezeritem.ser
 import { FreezerItemImage } from '../../../models/freezeritemimage';
 import { FreezerItemImageService } from '../../../service/freezeritemimage/freezeritemimage.service';
 import { FormControl, Validators } from '@angular/forms';
+import { AppModule } from '../../../app.module';
 
 @Component({
   selector: 'app-edit.dialog',

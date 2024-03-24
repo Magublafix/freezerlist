@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, take } from 'rxjs';
 import { FreezerItem } from '../../models/freezeritem';
-import { data } from 'jquery';
+import { AppModule } from '../../app.module';
 
 @Injectable({
   providedIn: 'root'

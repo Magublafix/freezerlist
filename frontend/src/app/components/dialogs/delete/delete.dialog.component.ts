@@ -8,6 +8,7 @@ import { NgxImageCompressService } from 'ngx-image-compress';
 import { FreezerItemService } from '../../../service/freezeritem/freezeritem.service';
 import { FreezerItemImage } from '../../../models/freezeritemimage';
 import { FreezerItemImageService } from '../../../service/freezeritemimage/freezeritemimage.service';
+import { AppModule } from '../../../app.module';
 
 @Component({
   selector: 'app-edit.dialog',

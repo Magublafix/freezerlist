@@ -3,6 +3,7 @@ import { CollectionViewer, DataSource } from "@angular/cdk/collections";
 import { FreezerItem } from '../../../models/freezeritem';
 import { BehaviorSubject, Observable, catchError, finalize, of } from 'rxjs';
 import { FreezerItemService } from '../../freezeritem/freezeritem.service';
+import { AppModule } from '../../../app.module';
 
 @Injectable({
   providedIn: 'root'
