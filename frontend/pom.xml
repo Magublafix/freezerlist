@@ -27,7 +27,7 @@
           <executions>
             <execution>
               <id>install npm dependencies</id>
-              <phase>initialize</phase>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>exec</goal>
               </goals>
@@ -39,7 +39,7 @@
             </execution>
             <execution>
               <id>build webapp</id>
-              <phase>compile</phase>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>exec</goal>
               </goals>
