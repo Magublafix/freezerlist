@@ -34,7 +34,7 @@
               <configuration>
                 <workingDirectory>${project.basedir}</workingDirectory>
                 <executable>npm</executable>
-                <commandlineArgs>install --loglevel verbose</commandlineArgs>
+                <commandlineArgs>install</commandlineArgs>
               </configuration>
             </execution>
             <execution>
@@ -46,7 +46,7 @@
               <configuration>
                 <workingDirectory>${project.basedir}</workingDirectory>
                 <executable>npm</executable>
-                <commandlineArgs>run build</commandlineArgs>
+                <commandlineArgs>run build --loglevel verbose</commandlineArgs>
               </configuration>
             </execution>
           </executions>
