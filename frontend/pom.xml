@@ -34,7 +34,7 @@
               <configuration>
                 <workingDirectory>${project.basedir}</workingDirectory>
                 <executable>npm</executable>
-                <commandlineArgs>ci</commandlineArgs>
+                <commandlineArgs>ci --loglevel verbose</commandlineArgs>
               </configuration>
             </execution>
             <execution>
